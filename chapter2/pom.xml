@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>org.isyeon</groupId>
+        <artifactId>NettyStudy</artifactId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+
+    <artifactId>chapter2</artifactId>
+    <packaging>pom</packaging>
+    <name>2. Echo Client and Echo Server</name>
+
+    <modules>
+        <module>Server</module>
+        <module>Client</module>
+    </modules>
+
+    <!-- <property> 값은 명령줄에서 자바 시스템 속성 -D를 이용해 재정의 가능. 속성은 자식 프로젝트로 상속됨 -->
+    <properties>
+        <echo-server.hostname>localhost</echo-server.hostname>
+        <echo-server.port>9999</echo-server.port>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
+    <!-- 부모의 <dependencies> 요소는 자식 프로젝트로 상속됨 -->
+    <dependencies>
+        <dependency>
+            <groupId>io.netty</groupId>
+            <artifactId>netty-all</artifactId>
+            <version>4.0.31.Final</version>
+        </dependency>
+    </dependencies>
+
+    <!-- 부모의 <plugin> 요소는 자식 프로젝트로 상속됨 -->
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <artifactId>maven-failsafe-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <artifactId>maven-surefire-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>exec-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
